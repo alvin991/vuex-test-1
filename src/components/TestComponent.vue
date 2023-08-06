@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'TestComponent',
@@ -14,11 +14,15 @@ export default {
   },
   mounted() {
     console.log(this.computedCount)
+    console.log(`getters ${this.computedCompareCount}`)
   },
   computed: {
     ...mapState({
       computedCount: state => state.test2.count
-    })
+    }),
+    ...mapGetters('test2', {
+      computedCompareCount: 'compareCount',
+    }),
   }
 }
 </script>
