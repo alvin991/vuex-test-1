@@ -10,7 +10,10 @@ const state = () => ({
 // })
 
 const getters = {
-  compareCount: (state) => state.count === 1234
+  compareCount: (state) => state.count === 1234,
+  ifCountIsBigger: (state) => (value) => {
+    return state.count > value ? true : false
+  },
 }
 
 export default {

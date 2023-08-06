@@ -15,14 +15,20 @@ export default {
   mounted() {
     console.log(this.computedCount)
     console.log(`getters ${this.computedCompareCount}`)
+    console.log(`getters with parameter ${this.computedIfCountIsBigger}`)
   },
   computed: {
     ...mapState({
       computedCount: state => state.test2.count
     }),
     ...mapGetters('test2', {
-      computedCompareCount: 'compareCount',
+      computedCompareCount: 'compareCount'
     }),
+    computedIfCountIsBigger() {
+      return this.$store.getters['test2/ifCountIsBigger'](1000)
+    }
+  },
+  methods: {
   }
 }
 </script>
