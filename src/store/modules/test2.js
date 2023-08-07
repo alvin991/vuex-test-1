@@ -3,12 +3,6 @@ const state = () => ({
   count: 1234
 })
 
-// const getters = (state) => ({
-//   compareCount() {
-//     return state.count === 1234
-//   }
-// })
-
 const getters = {
   compareCount: (state) => state.count === 1234,
   ifCountIsBigger: (state) => (value) => {
@@ -16,8 +10,15 @@ const getters = {
   },
 }
 
+const mutations = {
+  countAddOne: (state) => {
+    state.count++
+  }
+}
+
 export default {
   namespaced: true,
   state,
-  getters
+  getters,
+  mutations
 }

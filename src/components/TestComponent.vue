@@ -1,11 +1,12 @@
 <template>
   <div>
     Test Component {{ msg }} {{ computedCount }}
+    <button @click="addOne">Add 1</button>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'TestComponent',
@@ -29,6 +30,12 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('test2', {
+      add: 'countAddOne'
+    }),
+    addOne() {
+      this.add()
+    }
   }
 }
 </script>
