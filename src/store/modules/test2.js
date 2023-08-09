@@ -16,9 +16,18 @@ const mutations = {
   }
 }
 
+const actions = {
+  addOneAction: ( {commit, state}) => { 
+    console.log(`b4 state ${JSON.stringify(state)}`)
+    commit('countAddOne')
+    console.log(`after state ${JSON.stringify(state)}`)
+  }
+}
+
 export default {
   namespaced: true,
   state,
   getters,
-  mutations
+  mutations,
+  actions
 }

@@ -34,7 +34,8 @@ export default {
       add: 'countAddOne'
     }),
     addOne() {
-      this.add()
+      // this.add()
+      this.$store.dispatch('test2/addOneAction')
     }
   }
 }
