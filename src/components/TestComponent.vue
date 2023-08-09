@@ -2,6 +2,7 @@
   <div>
     Test Component {{ msg }} {{ computedCount }}
     <button @click="addOne">Add 1</button>
+    <button @click="minus(2)">Minus 2</button>
   </div>
 </template>
 
@@ -31,11 +32,17 @@ export default {
   },
   methods: {
     ...mapMutations('test2', {
-      add: 'countAddOne'
+      add: 'countAddOne',
+      minusCount: 'countMinus'
     }),
     addOne() {
       // this.add()
       this.$store.dispatch('test2/addOneAction')
+    },
+    minus(deduct) {
+      console.log(`minus ${deduct}`)
+      // this.minusCount(deduct)
+      this.$store.dispatch('test2/minusAction', {deduct:3})
     }
   }
 }

@@ -13,6 +13,10 @@ const getters = {
 const mutations = {
   countAddOne: (state) => {
     state.count++
+  },
+  countMinus: (state, deduct) => {
+    console.log(`countMinus ${deduct}`)
+    state.count-=deduct
   }
 }
 
@@ -21,6 +25,10 @@ const actions = {
     console.log(`b4 state ${JSON.stringify(state)}`)
     commit('countAddOne')
     console.log(`after state ${JSON.stringify(state)}`)
+  },
+  minusAction: ( context, payload) => {
+    console.log(`minusAction `)
+    context.commit('countMinus', payload.deduct)
   }
 }
 
